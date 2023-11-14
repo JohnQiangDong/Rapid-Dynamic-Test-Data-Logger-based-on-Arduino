@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 baud_rate = 19200
-port_name = '/dev/tty.usbmodem21201'
+port_name = '/dev/tty.usbmodem1234567890992'
 
 ser = serial.Serial(port_name, baud_rate, timeout=1)
 

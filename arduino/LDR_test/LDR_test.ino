@@ -16,5 +16,5 @@ void loop() {
   int_part = LDR_Reading * (3.3/255);
   sprintf(buf,"%d.%02d",int_part,frac_part);// and format as a string using sprintf
   Serial.println(buf);
-  delay(1);
+  delay(1000);
 }
