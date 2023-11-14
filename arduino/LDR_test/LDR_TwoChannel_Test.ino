@@ -25,5 +25,5 @@ void loop() {
   sprintf(buf_2,"%d.%02d",int_part_2,frac_part_2);// and format as a string using sprintf
   Serial.println(buf_1);
   Serial.println(buf_2);
-  delay(1000);
+  delay(100);
 }
