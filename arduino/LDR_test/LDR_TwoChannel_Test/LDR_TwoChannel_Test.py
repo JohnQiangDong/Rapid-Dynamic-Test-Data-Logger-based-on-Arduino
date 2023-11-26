@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 baud_rate = 19200
-port_name = '/dev/tty.usbmodem21201'
+port_name = '/dev/tty.usbmodem21101'
 
 ser = serial.Serial(port_name, baud_rate, timeout=1)
 
@@ -32,7 +32,7 @@ def update(frame):
     time_2.append(count)
 
     data_1 = float(ser.readline().decode('utf-8').strip())
-    data_2 = float(ser.readline().decode('utf-8').strip()) * 10
+    data_2 = float(ser.readline().decode('utf-8').strip())
     
     LDR_Reading_1.append(data_1)
     LDR_Reading_2.append(data_2)

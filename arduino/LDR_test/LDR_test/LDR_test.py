@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 baud_rate = 19200
-#port_name = '/dev/tty.usbmodem1234567890992'
-port_name = '/dev/tty.usbmodem21401'
+port_name = '/dev/tty.usbmodem1234567890992'
+#port_name = '/dev/tty.usbmodem21401'
 
 ser = serial.Serial(port_name, baud_rate, timeout=1)
 
@@ -25,7 +25,7 @@ line, = ax.plot(time, LDR_Reading)
 def update(frame):
     global count
     time.append(count)
-    LDR_Reading.append(float(ser.readline().decode('utf-8').strip()))
+    LDR_Reading.append(float(ser.readline().decode('utf-8').strip())) # '\n' needs to be included in the sending data, to let python know the end of data
     count += 1
     line.set_data(time, LDR_Reading)
     ax.relim()
