@@ -1,10 +1,10 @@
 import serial
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+#from matplotlib.animation import FuncAnimation
 
 baud_rate = 19200
-#port_name = '/dev/tty.usbmodem1234567890992'
-port_name = '/dev/tty.usbmodem21101'
+port_name = '/dev/tty.usbmodem1234567890992'
+#port_name = '/dev/tty.usbmodem21101'
 
 ser = serial.Serial(port_name, baud_rate, timeout=1)
 
@@ -20,6 +20,10 @@ if ser.is_open:
 else:
     print(f"Failed to open serial port {port_name}.")
     exit()
+
+while(1):
+    print(ser.readline().decode('utf-8').strip())
+
 
 LDR_Reading_1.append(ser.readline().decode('utf-8').strip())
 LDR_Reading_1.append(float(ser.readline().decode('utf-8').strip()))

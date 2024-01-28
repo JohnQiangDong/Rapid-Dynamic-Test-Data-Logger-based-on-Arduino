@@ -23,10 +23,11 @@ void loop() {
   frac_part_1 = (LDR_Reading_1 * 100.0) * (5.0 / 1024) - int_part_1 * 100;
   sprintf(buf_1, "%d.%02d", int_part_1, frac_part_1);
   Serial.println(buf_1);
-
+  '''
   int_part_2 = (float)LDR_Reading_2 * (5.0 / 1024);
   frac_part_2 = (LDR_Reading_2 * 100.0) * (5.0 / 1024) - int_part_2 * 100;
   sprintf(buf_2, "%d.%02d", int_part_2, frac_part_2);
   Serial.println(buf_2);
   delay(100);
+  '''
 }
