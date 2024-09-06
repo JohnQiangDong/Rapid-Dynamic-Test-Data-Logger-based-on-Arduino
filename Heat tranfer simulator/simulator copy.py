@@ -3,14 +3,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Parameters
-Lx = 310
+Lx = 180
 Ly = 200
-Lz = 80       # Size of the cubic domain (mm)
+Lz = 10       # Size of the cubic domain (mm)
 Nx = 20       # Number of grid points along x
 Ny = 20       # Number of grid points along y
 Nz = 10       # Number of grid points along z
-alpha = 0.08  # Thermal diffusivity (mm^2/s)
-T_initial = -20.0  # Initial temperature in the center of the cube (starting from 60 degrees Celsius)
+alpha = 0.2  # Thermal diffusivity (mm^2/s)
+T_initial = -20.0  # Initial temperature 
 T_room = 25.0  # Room temperature
 
 # Discretization
@@ -43,7 +43,7 @@ for step in range(num_steps):
     for i in range(1, Nx-1):
         for j in range(1, Ny-1):
             for k in range(1, Nz-1):
-                T[i, j, k] = Tn[i, j, k] + alpha * dt * (
+                T[i, j, k] = Tn[i, j, k] + 0.1 * alpha * dt * (
                     (Tn[i+1, j, k] - 2*Tn[i, j, k] + Tn[i-1, j, k]) / dx**2 +
                     (Tn[i, j+1, k] - 2*Tn[i, j, k] + Tn[i, j-1, k]) / dy**2 +
                     (Tn[i, j, k+1] - 2*Tn[i, j, k] + Tn[i, j, k-1]) / dz**2
@@ -57,7 +57,7 @@ Xg, Yg = np.meshgrid(x, y)
 
 
 cntr1 = plt.contourf(Xg, Yg, T_plot[1:-1,1:-1,-1], levels=10)
-plt.title('Cross-sectional Temperature after 60s (Ti = -20, a = 0.08)')
+plt.title('Cross-sectional Temperature after 60s (Ti = -20)')
 plt.colorbar(cntr1)
 plt.show()
 
